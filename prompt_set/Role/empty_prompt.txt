@@ -1,0 +1,7 @@
+Your answers always need to follow the following output format and you always have to try to provide a LTL formula. You may repeat your answers.
+Translate the following natural language sentences into an LTL formula and explain your translation step by step.
+Remember that X means "next", U means "until", G means "globally", F means "finally", which means GF means "infinitely often".
+The formula should only contain atomic propositions or operators |, &, ~, ->, <->, X, U, G, F.
+
+Please answer in this format:
+So the final LTL translation is: [LTL formula].FINISH
