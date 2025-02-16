@@ -192,7 +192,11 @@ def translate_by_gpt_similar(source_nl,model = "GPT35",prompt_type = "similar", 
             # file = "prompt_set/Role/SoftwareEngineerAi_prompt.txt"
             # file = "prompt_set/Role/artist_prompt.txt"
             # file = "prompt_set/Role/empty_prompt.txt"
-            file = "prompt_set/Role/geneticist_prompt.txt"
+            # file = "prompt_set/Role/geneticist_prompt.txt"
+            file = "prompt_set/Role/intj_prompt.txt"
+            # file = "prompt_set/Role/infp_prompt.txt"
+            # file = "prompt_set/Role/esfp_prompt.txt"
+            # file = "prompt_set/Role/entj_prompt.txt"
 
             
         else:  # zero-shot
@@ -204,6 +208,8 @@ def translate_by_gpt_similar(source_nl,model = "GPT35",prompt_type = "similar", 
             engine = "gpt-4"
         elif model == "gpt-4-1106-preview":
             engine = "gpt-4-1106-preview"
+        elif model == "gpt4o":
+            engine = "gpt-4o-mini-2024-07-18"
         
         with open(file, 'r') as prompt_file:
             prompt_profix = prompt_file.read()
@@ -262,6 +268,7 @@ def translate_from_file(filename, prompt_type = 'similar',neigh = 10,engine = "g
         if ltl_exists:
             truth_ltl = ltl.strip()
             final_res = nl_translation[0].replace(" ", "")
+            final_res = final_res.replace("`", "")
             truth_ltl = truth_ltl.replace(" ", "")
             result = final_res == truth_ltl.replace(" ", "")
             reference = list(truth_ltl.replace(" ",""))  
@@ -291,8 +298,12 @@ def translate_from_file(filename, prompt_type = 'similar',neigh = 10,engine = "g
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_software_engineer_{rounded_value}_neigh={neigh}"
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_software_engineering_AI_{rounded_value}_neigh={neigh}"
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_artist_{rounded_value}_neigh={neigh}"
-        # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_empty{rounded_value}_neigh={neigh}"
-        base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_geneticist_{rounded_value}_neigh={neigh}"
+        # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_empty"
+        # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_geneticist_{rounded_value}_neigh={neigh}"
+        base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_intj"
+        # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_infp"
+        # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_esfp"
+        # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_entj"
 
 
     else:    
@@ -329,8 +340,6 @@ if __name__ == "__main__":
     nl = "Every a is eventually followed by a e."
     engine="gemini"
     neigh = 10
-
-
     nl_translation = translate_by_gpt_similar(source_nl=nl,model=engine,neigh_num=neigh)
     print(nl_translation)
     # print(f"The code execution is completed and it takes {execution_time} seconds in total.")
