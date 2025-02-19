@@ -10,6 +10,7 @@ from src.utils.embeddings_utils import (
 # constants
 EMBEDDING_MODEL = "text-embedding-ada-002"
 
+# embedding_cache_path = "cache/recommendations_embeddings_cache.pkl"
 embedding_cache_path = "src/cache/recommendations_embeddings_cache.pkl"
 
 try:

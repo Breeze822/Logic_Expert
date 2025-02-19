@@ -11,7 +11,9 @@ import sys
 from src.recommendation import *
 from src.Global import *
 from src.spot_eq import *
-
+# from recommendation import *
+# from Global import *
+# from spot_eq import *
 
 
 start_time = time.time()
@@ -109,6 +111,7 @@ def gpt_answer(prompt, engine_model):
         except openai.error.RateLimitError as e:
             print("Rate limit reached, sleeping for 60 seconds...")
             time.sleep(60)
+        
 
 
 
@@ -118,7 +121,7 @@ def gemini_answer(prompt):
             response = Gemini_model.generate_content(prompt)
             return response.text
         except Exception as e:
-            print("Error! retry after for 30 seconds...")
+            print(f"Error! :{e} retry after for 30 seconds...")
             time.sleep(30)
 
 def split_formula_to_get_final_LTL(original_answer):
@@ -197,6 +200,8 @@ def translate_by_gpt_similar(source_nl,model = "GPT35",prompt_type = "similar", 
             # file = "prompt_set/Role/infp_prompt.txt"
             # file = "prompt_set/Role/esfp_prompt.txt"
             # file = "prompt_set/Role/entj_prompt.txt"
+            file = "prompt_set/Role/sister_prompt.txt"
+
 
             
         else:  # zero-shot
@@ -300,7 +305,7 @@ def translate_from_file(filename, prompt_type = 'similar',neigh = 10,engine = "g
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_artist_{rounded_value}_neigh={neigh}"
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_empty"
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_geneticist_{rounded_value}_neigh={neigh}"
-        base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_intj"
+        base_file_name = output_filedir_path + f"/{engine}_{prompt_type}_sister"
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_infp"
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_esfp"
         # base_file_name = output_filedir_path + f"/syn_{engine}_{prompt_type}_entj"

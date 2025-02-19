@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from matplotlib.font_manager import FontProperties  
   
-font = FontProperties(fname='/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc', size=14) 
+font = FontProperties(fname='/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc', size=16) 
 
 # for i in a:
 #     print(i)

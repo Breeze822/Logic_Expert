@@ -39,3 +39,7 @@ python src/file_translation.py --model gemini --file Dataset/Dataset_100_AP_2.xl
 python src/file_translation.py --model gpt-3.5-turbo --file Dataset/Dataset_100_AP_2.xlsx --prompt_path prompt_set/Role/mathematician_prompt.txt  --output_dir Exp/AP/Gpt/ --prompt_type roleplay --neigh_num 20
 
 python src/file_translation.py --model gpt4o --file Dataset/Dataset_100_AP_2.xlsx --prompt_path prompt_set/Role/mathematician_prompt.txt  --output_dir Exp/AP/Gpt4o/ --prompt_type roleplay --neigh_num 20
+
+python src/file_translation.py --model gemini --file Dataset/Dataset_100_AP_2.xlsx --prompt_path prompt_set/Role/mathematician_prompt.txt  --output_dir role/exp/Gemini/ --prompt_type roleplay --neigh_num 20
+
+python src/file_translation.py --model gpt-3.5-turbo --file Dataset/Dataset_100_AP_2.xlsx --prompt_path prompt_set/Role/mathematician_prompt.txt  --output_dir role/exp/Gemini/ --prompt_type roleplay --neigh_num 20
